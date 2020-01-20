@@ -1,4 +1,4 @@
-from models import Partita, Punteggio, Domanda, User
+from progetto.models import Partita, Punteggio, Domanda, User
 from random import seed, sample
 
 
@@ -33,16 +33,13 @@ def signUp(db, email, nome, password):
 
 
 # logIn Utente
-def logIn(db, email, password):
+def logIn(db, email):
     user = db.session.query(User).filter(User.email == email).first()
-    if not user or not user.check_password(password):
-        return False
-    else:
-        return True
+    return user
 
 
-def load_user(db, email):
-    return db.session.query(User).filter(User.email == email).first()
+def load_user(db, user_id):
+    return db.session.query(User).filter(User.id == user_id).first()
 
 # salvataggioPartita CON TEMPO DI GIOCO
 
