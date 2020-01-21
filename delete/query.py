@@ -1,5 +1,5 @@
-from __init__ import db
-from progetto.models import User, Partita, Domanda
+from progetto.app import db, User, Partita, Domanda
+# from progetto.models import User, Partita, Domanda
 
 if __name__ == '__main__':
     db.create_all()

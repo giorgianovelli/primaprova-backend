@@ -1,4 +1,4 @@
-from progetto.models import Partita, Punteggio, Domanda, User
+from progetto.app import Partita, Punteggio, Domanda, User
 from random import seed, sample
 
 

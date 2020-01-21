@@ -1,36 +1,102 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from progetto.config import Config
+
 import progetto.methods as mt
 import json
+import flask_praetorian
 
 
+guard = flask_praetorian.Praetorian()
 app = Flask(__name__)
+
 CORS(app)
 app.config.from_object(Config)
+
 db = SQLAlchemy(app)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+#---------------------------------------------------------------MODELLI----------------------------------------------------------------------
+
+class Partita(db.Model):
+    __tablename__ = 'partite'
+    idPartita = db.Column(db.Integer, primary_key=True)
+    sessione = db.Column(db.JSON)  # Domande, risposte corrette, [punteggio], stato partita
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship("User", back_populates="partite")
 
 
-@login_manager.user_loader
-def load_user(id):
-    return mt.load_user(db, id)
+class Domanda(db.Model):  # da tenere al posto di data_table
+    __tablename__ = 'domande'
+    idDomanda = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.JSON)
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, unique=True)
+    nome = db.Column(db.String)
+    password = db.Column(db.String)
+    roles = db.Column(db.Text)
+    is_active = db.Column(db.Boolean, default=True, server_default='true')
+    partite = db.relationship("Partita", order_by=Partita.idPartita, back_populates="user")
+
+    def __repr__(self):
+        return "<User(email='%s', nome='%s', password='%s')>" % (self.email, self.nome, self.password)
+
+    def set_password(self, password):
+        self.password = guard.hash_password(password)
+
+    # def check_password(self, password):
+    #     return check_password_hash(self.password, password)
+
+    @property
+    def rolenames(self):
+        try:
+            return self.roles.split(',')
+        except Exception:
+            return []
+
+    @classmethod
+    def lookup(cls, email):
+        return cls.query.filter_by(email=email).one_or_none()
+
+    @classmethod
+    def identify(cls, id):
+        return cls.query.get(id)
+
+    @property
+    def identity(self):
+        return self.id
+
+    def is_valid(self):
+        return self.is_active
+
+
+class Punteggio(object):
+    def __init__(self, giocatore, score):
+        self.giocatore = giocatore
+        self.score = score
+
+#--------------------------------------------------------------------------------------------------------------
+
+
+guard.init_app(app, User)
 
 
 @app.route('/')
 def score():
     return json.dumps([(user.giocatore, user.score) for user in mt.getScore(db)])
 
+
 # log out e match con @login_required
+# match con metodo get per inviare le domande e post per ricevere i risultati?
 @app.route('/match')
 def match():
     return json.dumps(mt.getQuiz(db))
-    # return json.dumps('partita')
 
 
 @app.route('/signup', methods=['POST'])
@@ -48,33 +114,32 @@ def signup_post():
 
 @app.route('/login', methods=['POST'])
 def login_post():
-    req_data = request.get_json()
+    req_data = request.get_json(force=True)
     email = req_data['email']
-    pwd = req_data['password_hash']
-    user = mt.logIn(db, email)
-    # print(user)
-    if user:
-        if user.check_password(pwd):
-            print(login_user(user))
-            print(current_user.is_authenticated)
-            return json.dumps('logIn corretto')
-
-    return json.dumps('logIn non corretto')
+    password = req_data['password']
+    user = guard.authenticate(email, password)
+    ret = {'access_token': guard.encode_jwt_token(user)}
+    return jsonify(ret), 200
 
 
-@app.route("/hello")
-def hello():
-    print(current_user.is_authenticated)
-    if current_user.is_authenticated:
-        return json.dumps('Hello %s!' % current_user.nome)
-    else:
-        return json.dumps('You are not logged in!')
+@app.route('/protected')
+@flask_praetorian.auth_required
+def protected():
+    """
+    A protected endpoint. The auth_required decorator will require a header
+    containing a valid JWT
+    .. example::
+       $ curl http://localhost:5000/protected -X GET \
+         -H "Authorization: Bearer <your_token>"
+    """
+    return jsonify(message='protected endpoint (allowed user {})'.format(
+        flask_praetorian.current_user().username,
+    ))
 
 
 @app.route('/logout')
-@login_required
+@flask_praetorian.auth_required
 def logout():
-    print(logout_user())
     return json.dumps('logout corretto')
 
 
