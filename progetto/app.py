@@ -95,6 +95,7 @@ def score():
 # log out e match con @login_required
 # match con metodo get per inviare le domande e post per ricevere i risultati?
 @app.route('/match')
+@flask_praetorian.auth_required
 def match():
     return json.dumps(mt.getQuiz(db))
 
@@ -132,8 +133,9 @@ def protected():
        $ curl http://localhost:5000/protected -X GET \
          -H "Authorization: Bearer <your_token>"
     """
+    print(flask_praetorian.current_user())
     return jsonify(message='protected endpoint (allowed user {})'.format(
-        flask_praetorian.current_user().username,
+        flask_praetorian.current_user().nome,
     ))
 
 
