@@ -1,5 +1,4 @@
-from progetto.app import db, User, Partita, Domanda
-# from progetto.models import User, Partita, Domanda
+from progetto.models import db, User, Domanda
 
 if __name__ == '__main__':
     db.create_all()
@@ -47,43 +46,49 @@ if __name__ == '__main__':
         "stato_partita": "terminata"
     }
 
-    # inserimento partita per utente non esistente ok
+
+"""
+    # inserimento match per utente non esistente ok
+    
     jack = User(email='jack@gmail.com', nome='jack')
     jack.set_password('gjffdd')
     jack.partite = [Partita(sessione=filePartita)]
     # print([(prova.sessione) for prova in jack.partite])
     db.session.add(jack)
 
-    # inserimento partita per utente già esistente ok
+    # inserimento match per utente già esistente ok
     p = db.session.query(User).filter(User.nome == 'prova').first()
     p.partite.append(Partita(sessione=filePartita))
 
     db.session.commit()
 
     # lista punteggi
-    # def getScore():
-    #     lista_punteggi = []
-    #     for instance in db.session.query(Partita):
-    #         lista_punteggi.append(Punteggio(instance.user.nome, instance.sessione["punteggio"]))
-    #         # print(instance.user.nome, instance.sessione["punteggio"])
-    #     return lista_punteggi
+    def getScore():
+        lista_punteggi = []
+        for instance in db.session.query(Partita):
+            lista_punteggi.append(Punteggio(instance.user.nome, instance.sessione["punteggio"]))
+            # print(instance.user.nome, instance.sessione["punteggio"])
+        return lista_punteggi
 
     # registrazione Utente (parametro email, nome, password)
-    # p = db.session.query(User).filter(User.email == 'a@gmail.com').all()
-    # print(p)
-    # if p.check_password('prova2'):
-    #     print('ok')
-    # else:
-    #     print('password errata')
+    p = db.session.query(User).filter(User.email == 'a@gmail.com').all()
+    print(p)
+    if p.check_password('prova2'):
+        print('ok')
+    else:
+        print('password errata')
 
-    # if not p:
-    #     print('aggiungo utente')
-    #     user = User(email='a@gmail.com', nome='prova2')
-    #     user.set_password('prova2')
-    #     db.session.add(user)
-    #     db.session.commit()
-    # else:
-    #     print('utente già esistente')
+    if not p:
+        print('aggiungo utente')
+        user = User(email='a@gmail.com', nome='prova2')
+        user.set_password('prova2')
+        db.session.add(user)
+        db.session.commit()
+    else:
+        print('utente già esistente')
+
+"""
+
 
 
 
