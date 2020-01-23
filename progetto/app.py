@@ -22,7 +22,7 @@ def create_app():
 def setup_database(app):
     with app.app_context():
         db.create_all()
-        # inser ecc
+        # insert ecc
 
 
 if __name__ == "__main__":
