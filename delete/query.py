@@ -1,31 +1,31 @@
-from progetto.models import db, User, Domanda
+from progetto.models import db, User, Question
 
 if __name__ == '__main__':
     db.create_all()
 
-    prova_user = User(email='prova@gmail.com', nome='prova')
+    prova_user = User(email='beppe@gmail.com', nome='beppe')
     prova_user.set_password('prova')
     gio_user = User(email='giorgia@gmail.com', nome='giorgia')
     gio_user.set_password('giorgia')
     db.session.add_all([prova_user, gio_user])
 
     db.session.add_all([
-        Domanda(data={
+        Question(data={
             "testo": "quanto fa 2*2?",
             "giusta": "4",
             "risposte": ["4", "8", "2"]
         }),
-        Domanda(data={
+        Question(data={
            "testo": "quanto fa 2:2?",
            "giusta": "1",
            "risposte": ["1", "4", "2"]
        }),
-        Domanda(data={
+        Question(data={
             "testo": "quanto fa 4*6?",
             "giusta": "24",
             "risposte": ["24", "20", "28"]
         }),
-        Domanda(data={
+        Question(data={
             "testo": "quanto fa 7*4?",
             "giusta": "28",
             "risposte": ["28", "21", "35"]

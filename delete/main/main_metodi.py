@@ -1,4 +1,4 @@
-from progetto.models import Partita, db
+from progetto.models import Match, db
 
 class Punteggio(object):
     def __init__(self, giocatore, score):
@@ -8,6 +8,6 @@ class Punteggio(object):
 
 def getRanking():
     lista_punteggi = []
-    for instance in db.session.query(Partita):
+    for instance in db.session.query(Match):
         lista_punteggi.append(Punteggio(instance.user.email, instance.sessione["punteggio"]))
     return lista_punteggi
