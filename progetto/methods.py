@@ -74,7 +74,7 @@ def insertUser(email, name, password):
     :rtype:
     """
 
-    new_user = User(email=email, nome=name)
+    new_user = User(email=email, name=name)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
