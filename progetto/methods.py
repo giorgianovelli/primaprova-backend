@@ -3,6 +3,7 @@ from .guard import guard
 from .models import Match, User, Question
 from random import seed, sample
 from operator import attrgetter
+import json
 
 
 class GameScore(object):
@@ -20,7 +21,7 @@ def getRanking():  # TODO se un giocatore ha fatto più partite prendere il punt
     checked = []
 
     for instance in db.session.query(Match):
-        score_list.append(GameScore(instance.user.name, int(instance.session["punteggio"])))
+        score_list.append(GameScore(instance.user.name, int(instance.session["score"])))
 
     sorted_list = sorted(score_list, key=attrgetter('score'), reverse=True)
     print([(item.player, item.score) for item in sorted_list])
@@ -106,10 +107,18 @@ def saveMatch(email, data):
     :return:
     :rtype: Boolean
     """
-
     user = db.session.query(User).filter(User.email == email).first()
     if user:
-        user.games.append(Match(session=data))
+        data_json = json.dumps(data)
+        data_dict = json.loads(data_json)
+        answers = data_dict["right_answers"]
+        if len(answers) > 0:
+            score = len(answers) * int(data_dict["time"])
+            data_dict.update({'score': score})
+        else:
+            data_dict.update({'score': 0})
+
+        user.games.append(Match(session=data_dict))
         db.session.commit()
         return True
     else:
