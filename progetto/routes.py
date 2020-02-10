@@ -44,9 +44,9 @@ def signup_post():
     user = mt.searchUser(email)
     if not user:
         mt.insertUser(email, name, password)
-        return json.dumps('User added')  # redirect log in?
+        return "User added", 200  # redirect log in?
     else:
-        return json.dumps('User already exists')  # redirect log in?
+        return "User already exists", 400  # redirect log in?
 
 
 @main.route('/match', methods=['GET', 'POST'])

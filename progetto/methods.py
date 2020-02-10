@@ -113,7 +113,7 @@ def saveMatch(email, data):
         data_dict = json.loads(data_json)
         answers = data_dict["right_answers"]
         if len(answers) > 0:
-            score = len(answers) * int(data_dict["time"])
+            score = (len(answers) * 100)/int(data_dict["time"])
             data_dict.update({'score': score})
         else:
             data_dict.update({'score': 0})
