@@ -27,16 +27,14 @@ def create_app():
 def setup_database(app):
     """Create database.
 
-    :param app:
+    :param app: current app in use
     """
 
     with app.app_context():
         db.create_all()
-        prova_user = mod.User(email='beppe@gmail.com', name='beppe')
-        prova_user.set_password('prova')
         gio_user = mod.User(email='giorgia@gmail.com', name='giorgia')
         gio_user.set_password('giorgia')
-        db.session.add_all([prova_user, gio_user])
+        db.session.add_all([gio_user])
         db.session.commit()
 
 

@@ -20,7 +20,7 @@ class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String, unique=True)
     password = db.Column(db.String)
     roles = db.Column(db.Text)
     is_active = db.Column(db.Boolean, default=True, server_default='true')

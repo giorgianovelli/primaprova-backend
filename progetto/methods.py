@@ -8,7 +8,7 @@ import json
 
 class GameScore(object):
     def __init__(self, player, score):
-        """Initialize the GameScore object with the given player value and score value"""
+        """Initialize the GameScore object with the given player value and score value."""
 
         self.player = player
         self.score = score
@@ -35,13 +35,11 @@ def getRanking():  # TODO se un giocatore ha fatto più partite prendere il punt
 
 def authenticate(email, password):
     """Authenticate user, check if the user enters the right email and password.
+    Encodes user data into a jwt token that can be used for authorization at protected endpoints.
 
     :param email: user's email value
-    :type email:
     :param password:user's password value
-    :type password:
-    :return:
-    :rtype:
+    :return: jwt token
     """
 
     user = guard.authenticate(email, password)
@@ -49,16 +47,26 @@ def authenticate(email, password):
     return ret
 
 
-def searchUser(email):
+def searchUserByEmail(email):
     """Query from db to search the user by email.
 
     :param email: user's email value
-    :type email:
-    :return:
-    :rtype:
+    :return: user
+    :rtype: User
     """
 
     user = db.session.query(User).filter(User.email == email).first()
+    return user
+
+
+def searchUserByName(name):
+    """Query from db to search the user by name.
+
+        :param name: user's name value
+        :return: user
+        :rtype: User
+        """
+    user = db.session.query(User).filter(User.name == name).first()
     return user
 
 
@@ -66,45 +74,47 @@ def insertUser(email, name, password):
     """Insert new user in db.
 
     :param email: user's email value
-    :type email:
     :param name:user's password value
-    :type name:
     :param password:user's password value
-    :type password:
-    :return:
-    :rtype:
+    :return: inserted user
+    :rtype: User
     """
 
     new_user = User(email=email, name=name)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
+    return new_user
 
 
 def getQuestions():
     """Get random question from db e return them in an array.
 
-    :return:
-    :rtype:
+    :return: list of questions
+    :rtype: Question
     """
-
+    maxNumQuestion = 10
     seed()
     sequence = []
     for question in db.session.query(Question):
         sequence.append(question.idQuestion)
-    subset = sample(sequence, int(len(sequence)/2))
+
+    if int(len(sequence)/2) > maxNumQuestion:
+        num = maxNumQuestion
+    else:
+        num = int(len(sequence)/2)
+
+    subset = sample(sequence, num)
     random_questions = db.session.query(Question).filter(Question.idQuestion.in_(subset)).all()
     return random_questions
 
 
 def saveMatch(email, data):
-    """Search user by email and save the game in db
+    """Search user by email and save the game in db.
 
     :param email: user's email value
-    :type email:
-    :param data:
-    :type data:
-    :return:
+    :param data: json file with game info
+    :return: boolean value to check insert in db
     :rtype: Boolean
     """
     user = db.session.query(User).filter(User.email == email).first()

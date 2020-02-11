@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/progetto/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto/methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/progetto/methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/progetto/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/progetto/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -213,6 +215,7 @@
       <workItem from="1580977786727" duration="9754000" />
       <workItem from="1581064999560" duration="1716000" />
       <workItem from="1581323758442" duration="2503000" />
+      <workItem from="1581409436179" duration="7229000" />
     </task>
     <servers />
   </component>
@@ -235,7 +238,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/primaprova_backend$query.coverage" NAME="query Coverage Results" MODIFIED="1579173385773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/primaprova_backend$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1579694327023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progetto" />
-    <SUITE FILE_PATH="coverage/primaprova_backend$app.coverage" NAME="app Coverage Results" MODIFIED="1581354852106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progetto" />
+    <SUITE FILE_PATH="coverage/primaprova_backend$app.coverage" NAME="app Coverage Results" MODIFIED="1581418532986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progetto" />
     <SUITE FILE_PATH="coverage/primaprova_backend$query__1_.coverage" NAME="query  Coverage Results" MODIFIED="1579561829371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/delete" />
     <SUITE FILE_PATH="coverage/primaprova_backend$query_.coverage" NAME="query  Coverage Results" MODIFIED="1579607974258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/delete" />
     <SUITE FILE_PATH="coverage/primaprova_backend$main.coverage" NAME="main Coverage Results" MODIFIED="1579257007502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
