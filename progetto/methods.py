@@ -18,19 +18,19 @@ def getRanking():  # TODO se un giocatore ha fatto più partite prendere il punt
     """Get score game for every player from db and save it in a GameStore object array."""
 
     score_list = []
-    checked = []
-
+    topTen = []
     for instance in db.session.query(Match):
         score_list.append(GameScore(instance.user.name, int(instance.session["score"])))
 
     sorted_list = sorted(score_list, key=attrgetter('score'), reverse=True)
+    topTen = sorted_list[:10]
     print([(item.player, item.score) for item in sorted_list])
     """
     for item in sorted_list:
         if item.player not in checked:
             checked.append(item)
     """
-    return sorted_list
+    return topTen
 
 
 def authenticate(email, password):
@@ -119,16 +119,16 @@ def saveMatch(email, data):
     """
     user = db.session.query(User).filter(User.email == email).first()
     if user:
-        data_json = json.dumps(data)
+        """data_json = json.dumps(data)
         data_dict = json.loads(data_json)
         answers = data_dict["right_answers"]
         if len(answers) > 0:
             score = (len(answers) * 100)/int(data_dict["time"])
             data_dict.update({'score': score})
         else:
-            data_dict.update({'score': 0})
+            data_dict.update({'score': 0})"""
 
-        user.games.append(Match(session=data_dict))
+        user.games.append(Match(session=data))
         db.session.commit()
         return True
     else:
