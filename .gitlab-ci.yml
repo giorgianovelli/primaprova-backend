@@ -1,0 +1,12 @@
+stages:
+ - build
+build:
+ image: python 3.8.0
+ stage: build
+ script:
+  - echo "Building"
+  - pip install ./requirements.txt
+ artifacts:
+  paths:
+   - ./
+ 
