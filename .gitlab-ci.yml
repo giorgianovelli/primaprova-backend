@@ -12,6 +12,6 @@ test:
  stage: test
  script:
   - echo "Testing"
-  - python progetto/test_score.py
+  - python test_score.py
 
  
