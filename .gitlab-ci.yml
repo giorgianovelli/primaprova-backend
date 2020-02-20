@@ -12,6 +12,7 @@ test:
  stage: test
  script:
   - echo "Testing"
+  - pip install -r requirements.txt
   - python test_score.py
 
  
