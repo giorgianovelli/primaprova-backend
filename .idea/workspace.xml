@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/progetto/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto/test_score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,6 +37,7 @@
   <component name="ProjectId" id="1WR3J7h558KTckCxTpibaRi3sHA" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend_quiz" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -198,7 +197,7 @@
       <workItem from="1581495907000" duration="20540000" />
       <workItem from="1581669089395" duration="2786000" />
       <workItem from="1582024038703" duration="3076000" />
-      <workItem from="1582206960867" duration="3411000" />
+      <workItem from="1582206960867" duration="5322000" />
     </task>
     <servers />
   </component>
