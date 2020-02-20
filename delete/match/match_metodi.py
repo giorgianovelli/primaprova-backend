@@ -1,6 +1,6 @@
 
 from random import seed, sample
-from progetto.models import Question, User, Match, db
+from models import Question, User, Match, db
 
 
 def getQuestions():

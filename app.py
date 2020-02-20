@@ -1,12 +1,12 @@
-from progetto.database import db
-from progetto.guard import guard
+from database import db
+from guard import guard
 
 from flask import Flask
 from flask_cors import CORS
-from progetto.config import Config
+from config import Config
 
-import progetto.models as mod
-from progetto.routes import main
+import models as mod
+from routes import main
 
 
 def create_app():

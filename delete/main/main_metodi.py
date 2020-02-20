@@ -1,4 +1,4 @@
-from progetto.models import Match, db
+from models import Match, db
 
 class Punteggio(object):
     def __init__(self, giocatore, score):

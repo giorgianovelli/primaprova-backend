@@ -1,6 +1,6 @@
 # from ..app import db, guard
 
-from progetto.models import User, db, guard
+from models import User, db, guard
 
 
 def searchUser(email):

@@ -1,4 +1,4 @@
-from progetto.models import db, User, Question
+from models import db, User, Question
 
 if __name__ == '__main__':
     db.create_all()

@@ -2,7 +2,7 @@ from flask.blueprints import Blueprint
 from flask import request, jsonify, make_response
 import json
 import flask_praetorian
-import progetto.methods as mt
+import methods as mt
 
 main = Blueprint('main', __name__)
 
