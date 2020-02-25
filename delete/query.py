@@ -1,9 +1,9 @@
-from models import db, User, Question
+from database import db
 
 if __name__ == '__main__':
     db.create_all()
 
-    prova_user = User(email='beppe@gmail.com', nome='beppe')
+    """prova_user = User(email='beppe@gmail.com', nome='beppe')
     prova_user.set_password('prova')
     gio_user = User(email='giorgia@gmail.com', nome='giorgia')
     gio_user.set_password('giorgia')
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         "punteggio": "100",
         "durata_sessione": "15",
         "stato_partita": "terminata"
-    }
+    }"""
 
 
 """

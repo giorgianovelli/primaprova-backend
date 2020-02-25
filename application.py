@@ -39,6 +39,6 @@ def setup_database(app):
 
 
 if __name__ == "__main__":
-    app = create_app()
+    application = create_app()
     # setup_database(app)
-    app.run()
+    application.run()

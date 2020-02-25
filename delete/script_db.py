@@ -1,11 +1,21 @@
-from database import db
-from guard import guard
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from flask_cors import CORS
+from config import Config
+import flask_praetorian
+
+guard = flask_praetorian.Praetorian()
+db = SQLAlchemy()
+app = Flask(__name__)
+app.app_context().push()
+CORS(app)
+app.config.from_object(Config)
 
 
 class Match(db.Model):
     __tablename__ = 'match'
     idMatch = db.Column(db.Integer, primary_key=True)
-    session = db.Column(db.JSON)  # Domande, risposte corrette, [punteggio], stato match
+    session = db.Column(db.JSON)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     user = db.relationship("User", back_populates="games")
 
@@ -55,4 +65,11 @@ class User(db.Model):
         return self.is_active
 
 
+db.init_app(app)
+guard.init_app(app, User)
+
+db.create_all()
+
+if __name__ == "__main__":
+    app.run()
 

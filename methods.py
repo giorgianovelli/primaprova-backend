@@ -1,9 +1,9 @@
-from .database import db
-from .guard import guard
-from .models import Match, User, Question
+from database import db
+from guard import guard
+from models import Match, User, Question
 from random import seed, sample
 from operator import attrgetter
-import json
+
 
 
 class GameScore(object):
