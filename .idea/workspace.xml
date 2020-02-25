@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_score.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_score.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Documents\primaprova-backend\tests" />
       <recent name="C:\Users\USER\Documents\primaprova-backend\delete" />
       <recent name="C:\Users\USER\Documents\primaprova-backend" />
       <recent name="C:\Users\USER\Documents\primaprova-backend\progetto" />
@@ -150,7 +151,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_score.TestScore.test_match" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for tests.test_score.TestScore.test_match" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="primaprova-backend" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,13 +162,13 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_score.TestScore.test_match&quot;" />
+      <option name="_new_target" value="&quot;tests.test_score.TestScore.test_match&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.app" />
-      <item itemvalue="Python tests.Unittests for test_score.TestScore.test_match" />
+      <item itemvalue="Python tests.Unittests for tests.test_score.TestScore.test_match" />
       <item itemvalue="Python.query" />
       <item itemvalue="Python.script_db" />
       <item itemvalue="Python.application" />
@@ -178,7 +179,7 @@
         <item itemvalue="Python.app" />
         <item itemvalue="Python.script_db" />
         <item itemvalue="Python.query" />
-        <item itemvalue="Python tests.Unittests for test_score.TestScore.test_match" />
+        <item itemvalue="Python tests.Unittests for tests.test_score.TestScore.test_match" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +216,7 @@
       <workItem from="1582206960867" duration="8578000" />
       <workItem from="1582276838177" duration="1338000" />
       <workItem from="1582555553576" duration="139000" />
-      <workItem from="1582622467247" duration="6696000" />
+      <workItem from="1582622467247" duration="7468000" />
     </task>
     <servers />
   </component>
