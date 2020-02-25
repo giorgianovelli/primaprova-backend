@@ -38,7 +38,6 @@ def setup_database(app):
         db.session.commit()
 
 
-if __name__ == "__main__":
-    application = create_app()
-    # setup_database(app)
-    application.run()
+application = create_app()
+# setup_database(app)
+application.run()

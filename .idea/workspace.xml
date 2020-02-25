@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_score.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +215,7 @@
       <workItem from="1582206960867" duration="8578000" />
       <workItem from="1582276838177" duration="1338000" />
       <workItem from="1582555553576" duration="139000" />
-      <workItem from="1582622467247" duration="7468000" />
+      <workItem from="1582622467247" duration="10179000" />
     </task>
     <servers />
   </component>
