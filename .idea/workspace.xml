@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -214,7 +215,7 @@
       <workItem from="1582206960867" duration="8578000" />
       <workItem from="1582276838177" duration="1338000" />
       <workItem from="1582555553576" duration="139000" />
-      <workItem from="1582622467247" duration="4224000" />
+      <workItem from="1582622467247" duration="6696000" />
     </task>
     <servers />
   </component>
