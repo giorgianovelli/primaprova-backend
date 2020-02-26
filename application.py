@@ -37,7 +37,10 @@ def setup_database(app):
         db.session.add_all([gio_user])
         db.session.commit()
 
-
 application = create_app()
-# setup_database(app)
-application.run()
+
+if __name__ == '__main__':
+    application.debug = True
+    application.run()
+
+
