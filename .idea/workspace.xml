@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2620adcc-7fc0-4de4-a40a-c20239156470" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.ebextensions/wsgi.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,10 +166,10 @@
     </configuration>
     <list>
       <item itemvalue="Python.app" />
-      <item itemvalue="Python tests.Unittests for tests.test_score.TestScore.test_match" />
       <item itemvalue="Python.query" />
       <item itemvalue="Python.script_db" />
       <item itemvalue="Python.application" />
+      <item itemvalue="Python tests.Unittests for tests.test_score.TestScore.test_match" />
     </list>
     <recent_temporary>
       <list>
@@ -215,7 +214,8 @@
       <workItem from="1582206960867" duration="8578000" />
       <workItem from="1582276838177" duration="1338000" />
       <workItem from="1582555553576" duration="139000" />
-      <workItem from="1582622467247" duration="12914000" />
+      <workItem from="1582622467247" duration="13527000" />
+      <workItem from="1582706853419" duration="748000" />
     </task>
     <servers />
   </component>
