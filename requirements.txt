@@ -23,7 +23,7 @@ psycopg2==2.8.4
 py-buzz==0.3.7
 pycparser==2.19
 PyInstaller==3.6
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dateutil==2.8.1
 pytzdata==2019.3
 pywin32-ctypes==0.2.0
